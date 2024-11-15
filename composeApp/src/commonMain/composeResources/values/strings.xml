@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FitnessX</string>
+    <string name="bottom_home">Home</string>
+    <string name="bottom_profile">Home</string>
+    <string name="bottom_articles">Articles</string>
+    <string name="bottom_workout">Workout</string>
+    <string name="system_default">System Default</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="light_mode">Light Mode</string>
+</resources>

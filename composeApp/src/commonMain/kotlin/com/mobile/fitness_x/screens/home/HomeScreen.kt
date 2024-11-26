@@ -1,4 +1,4 @@
-package com.mobile.fitness_x.screen.workout
+package com.mobile.fitness_x.screens.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -14,22 +14,22 @@ import androidx.navigation.NavController
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun WorkOutScreen(
+fun HomeScreen(
     rootNavController: NavController,
     paddingValues: PaddingValues
 ) {
-    val viewModel = koinViewModel<WorkOutViewModel>()
-
+    val viewModel = koinViewModel<HomeViewModel>()
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
     ) {
         Text(
-            text = "WorkOut",
+            text = "Home",
             modifier = Modifier.align(Alignment.Center),
             color = Color.Black,
             style = MaterialTheme.typography.bodyLarge
         )
     }
+
 }

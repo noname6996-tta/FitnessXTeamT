@@ -1,4 +1,4 @@
-package com.mobile.fitness_x.screen.articles
+package com.mobile.fitness_x.screens.articles
 
 import androidx.lifecycle.ViewModel
 

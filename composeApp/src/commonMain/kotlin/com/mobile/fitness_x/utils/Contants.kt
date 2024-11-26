@@ -21,21 +21,28 @@ val navigationItemsLists = listOf(
     NavigationItem(
         icon = Res.drawable.ic_home,
         title = Res.string.bottom_home,
-        route = MainRouteScreen.Home.route
+        route = NavigationRoute.HOME.route
     ), NavigationItem(
         icon = Res.drawable.ic_dumbbell,
         title = Res.string.bottom_workout,
-        route = MainRouteScreen.WorkOut.route
+        route = NavigationRoute.WORKOUT.route
     ), NavigationItem(
         icon = Res.drawable.ic_star,
         title = Res.string.bottom_articles,
-        route = MainRouteScreen.Articles.route
+        route = NavigationRoute.ARTICLES.route
     ), NavigationItem(
         icon = Res.drawable.ic_profile,
         title = Res.string.bottom_profile,
-        route = MainRouteScreen.Profile.route
+        route = NavigationRoute.PROFILE.route
     )
 )
+
+enum class NavigationRoute(val route: String) {
+    HOME(MainRouteScreen.Home.route),
+    WORKOUT(MainRouteScreen.WorkOut.route),
+    ARTICLES(MainRouteScreen.Articles.route),
+    PROFILE(MainRouteScreen.Profile.route)
+}
 
 enum class Theme(val title: StringResource) {
     SYSTEM_DEFAULT(Res.string.system_default),

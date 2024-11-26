@@ -1,4 +1,4 @@
-package com.mobile.fitness_x.screen.articles
+package com.mobile.fitness_x.screens.profile
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -14,21 +14,21 @@ import androidx.navigation.NavController
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun ArticlesScreen(
+fun ProfileScreen(
     rootNavController: NavController,
     paddingValues: PaddingValues
 ) {
-    val viewModel = koinViewModel<ArticlesViewModel>()
+    val viewModel = koinViewModel<ProfileViewModel>()
 
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black)
+            .background(Color.White)
     ) {
         Text(
-            text = "Articles",
+            text = "Profile",
             modifier = Modifier.align(Alignment.Center),
-            color = Color.White,
+            color = Color.Black,
             style = MaterialTheme.typography.bodyLarge
         )
     }

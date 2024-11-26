@@ -39,6 +39,8 @@ kotlin {
 
             // Splash API
             implementation(libs.androidx.core.splashscreen)
+
+
         }
         commonMain.dependencies {
             implementation(projects.shared)
@@ -64,6 +66,12 @@ kotlin {
             api(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.composeVM)
+
+            //Coil
+            implementation(libs.coil.compose.core)
+            implementation(libs.coil.mp)
+            implementation(libs.coil.network.ktor)
+            implementation(libs.coil.compose)
 
 
         }

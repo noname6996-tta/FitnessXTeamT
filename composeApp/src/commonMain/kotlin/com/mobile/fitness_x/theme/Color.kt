@@ -12,6 +12,8 @@ val Pink40 = Color(0xFF7D5260)
 
 val shimmer = Color(0xFFC3C3C3)
 
+val lavenderBlue = Color(0xffe9eefe)
+
 val shimmerColors = listOf(
     shimmer.copy(alpha = 0.3f),
     shimmer.copy(alpha = 0.5f),

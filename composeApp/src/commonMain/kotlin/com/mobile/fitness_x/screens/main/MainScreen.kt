@@ -1,9 +1,11 @@
-package com.mobile.fitness_x.screen.main
+package com.mobile.fitness_x.screens.main
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
@@ -12,12 +14,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.mobile.fitness_x.navigation.BottomNavigationBar
+import com.mobile.fitness_x.components.AppBottomNavigationBar
+import com.mobile.fitness_x.components.AppTopBar
 import com.mobile.fitness_x.navigation.NavigationItem
 import com.mobile.fitness_x.navigation.graphs.RootNavGraph
+import com.mobile.fitness_x.utils.NavigationRoute
 import com.mobile.fitness_x.utils.navigationItemsLists
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
@@ -44,11 +49,6 @@ fun MainScreen(
             navigationItemsLists.find { it.route == currentRoute }
         }
     }
-    val isMainScreenVisible by remember(isMediumExpandedWWSC) {
-        derivedStateOf {
-            navigationItem != null
-        }
-    }
     val isBottomBarVisible by remember(isMediumExpandedWWSC) {
         derivedStateOf {
             if (!isMediumExpandedWWSC) {
@@ -62,9 +62,7 @@ fun MainScreen(
     MainScaffold(
         rootNavController = rootNavController,
         currentRoute = currentRoute,
-        isMediumExpandedWWSC = isMediumExpandedWWSC,
         isBottomBarVisible = isBottomBarVisible,
-        isMainScreenVisible = isMainScreenVisible,
         onItemClick = { currentNavigationItem ->
             rootNavController.navigate(currentNavigationItem.route) {
                 rootNavController.graph.startDestinationRoute?.let { startDestinationRoute ->
@@ -85,26 +83,38 @@ fun MainScreen(
 fun MainScaffold(
     rootNavController: NavHostController,
     currentRoute: String?,
-    isMediumExpandedWWSC: Boolean,
     isBottomBarVisible: Boolean,
-    isMainScreenVisible: Boolean,
     onItemClick: (NavigationItem) -> Unit,
 ) {
-    Row {
         Scaffold(
+            modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing),
+            topBar = {
+                AnimatedVisibility(
+                    visible = currentRoute != NavigationRoute.WORKOUT.route,
+                    enter = slideInVertically(
+                        initialOffsetY = { -it }
+                    ),
+                    exit = slideOutVertically(
+                        targetOffsetY = { -it }
+                    )
+                ) {
+                    AppTopBar(
+                        currentRoute = currentRoute ?: "",
+                    )
+                }
+            },
             bottomBar = {
                 AnimatedVisibility(
                     visible = isBottomBarVisible,
                     enter = slideInVertically(
-
                         initialOffsetY = { fullHeight -> fullHeight }
                     ),
                     exit = slideOutVertically(
-                        // Slide out to the bottom
                         targetOffsetY = { fullHeight -> fullHeight }
                     )
                 ) {
-                    BottomNavigationBar(items = navigationItemsLists,
+                    AppBottomNavigationBar(
+                        items = navigationItemsLists,
                         currentRoute = currentRoute,
                         onItemClick = { currentNavigationItem ->
                             onItemClick(currentNavigationItem)
@@ -118,6 +128,5 @@ fun MainScaffold(
                 innerPadding = innerPadding,
             )
         }
-    }
 
 }

@@ -1,4 +1,4 @@
-package com.mobile.fitness_x.screen.setting
+package com.mobile.fitness_x.screens.setting
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

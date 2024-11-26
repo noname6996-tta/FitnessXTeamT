@@ -7,10 +7,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.mobile.fitness_x.navigation.Graph
 import com.mobile.fitness_x.navigation.MainRouteScreen
-import com.mobile.fitness_x.screen.articles.ArticlesScreen
-import com.mobile.fitness_x.screen.home.HomeScreen
-import com.mobile.fitness_x.screen.profile.ProfileScreen
-import com.mobile.fitness_x.screen.workout.WorkOutScreen
+import com.mobile.fitness_x.screens.articles.ArticlesScreen
+import com.mobile.fitness_x.screens.home.HomeScreen
+import com.mobile.fitness_x.screens.profile.ProfileScreen
+import com.mobile.fitness_x.screens.workout.WorkOutScreen
 
 fun NavGraphBuilder.mainNavGraph(
     rootNavController: NavHostController,

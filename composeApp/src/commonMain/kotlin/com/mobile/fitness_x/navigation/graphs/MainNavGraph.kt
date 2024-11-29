@@ -18,7 +18,7 @@ fun NavGraphBuilder.mainNavGraph(
 ) {
     navigation(
         startDestination = MainRouteScreen.Home.route,
-        route = Graph.MainScreenGraph
+        route = Graph.MainGraph
     ) {
         composable(route = MainRouteScreen.Home.route) {
             HomeScreen(rootNavController = rootNavController, paddingValues = innerPadding)

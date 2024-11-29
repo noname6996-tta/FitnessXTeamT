@@ -14,7 +14,7 @@ class AppPreferencesImpl(
     private val themeKey = stringPreferencesKey("theme")
 
     override suspend fun getTheme(): String {
-        return dataStore.data.map { preferences -> preferences[themeKey] }.first() ?: ""
+        return dataStore.data.map { preferences -> preferences[themeKey] }.first() ?: "LIGHT_MODE"
     }
 
     override suspend fun changeThemeMode(value: String) {

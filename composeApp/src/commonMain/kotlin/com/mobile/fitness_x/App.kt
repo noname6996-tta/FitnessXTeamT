@@ -1,6 +1,8 @@
 package com.mobile.fitness_x
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import com.mobile.fitness_x.screens.main.MainScreen
 import com.mobile.fitness_x.screens.setting.SettingViewModel
 import com.mobile.fitness_x.theme.AppTheme
@@ -12,10 +14,13 @@ import org.koin.compose.viewmodel.koinViewModel
 @Preview
 fun App() {
     KoinContext {
-        val settingViewModel = koinViewModel<SettingViewModel>()
-        val currentTheme = settingViewModel.currentTheme.value
+        val settingViewModel: SettingViewModel = koinViewModel()
+        val currentTheme by settingViewModel.currentTheme.collectAsState()
+
         AppTheme(currentTheme) {
-            MainScreen()
+            MainScreen(settingViewModel)
         }
+
     }
+
 }

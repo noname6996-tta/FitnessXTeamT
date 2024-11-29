@@ -1,7 +1,7 @@
 package com.mobile.fitness_x.navigation
 
 object Graph {
-    const val MainScreenGraph = "mainScreenGraph"
+    const val MainGraph = "mainGraph"
 }
 
 sealed class MainRouteScreen(val route: String) {
@@ -9,4 +9,8 @@ sealed class MainRouteScreen(val route: String) {
     data object WorkOut : MainRouteScreen("workout")
     data object Articles : MainRouteScreen("articles")
     data object Profile : MainRouteScreen("profile")
+}
+
+sealed class SettingRouteScreen(val route: String) {
+    data object Settings : SettingRouteScreen("settings")
 }

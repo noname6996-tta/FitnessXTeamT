@@ -19,17 +19,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.mobile.fitness_x.components.AppBottomNavigationBar
-import com.mobile.fitness_x.components.AppTopBar
 import com.mobile.fitness_x.navigation.NavigationItem
 import com.mobile.fitness_x.navigation.graphs.RootNavGraph
-import com.mobile.fitness_x.utils.NavigationRoute
+import com.mobile.fitness_x.screens.setting.SettingViewModel
 import com.mobile.fitness_x.utils.navigationItemsLists
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Composable
-fun MainScreen(
-
-) {
+fun MainScreen(settingViewModel: SettingViewModel) {
     val windowSizeClass = calculateWindowSizeClass()
     val isMediumExpandedWWSC by remember(windowSizeClass) {
         derivedStateOf {
@@ -75,7 +72,8 @@ fun MainScreen(
                 restoreState = true
             }
 
-        }
+        },
+        settingViewModel = settingViewModel
     )
 }
 
@@ -85,24 +83,10 @@ fun MainScaffold(
     currentRoute: String?,
     isBottomBarVisible: Boolean,
     onItemClick: (NavigationItem) -> Unit,
+    settingViewModel: SettingViewModel
 ) {
         Scaffold(
             modifier = Modifier.windowInsetsPadding(WindowInsets.safeDrawing),
-            topBar = {
-                AnimatedVisibility(
-                    visible = currentRoute != NavigationRoute.WORKOUT.route,
-                    enter = slideInVertically(
-                        initialOffsetY = { -it }
-                    ),
-                    exit = slideOutVertically(
-                        targetOffsetY = { -it }
-                    )
-                ) {
-                    AppTopBar(
-                        currentRoute = currentRoute ?: "",
-                    )
-                }
-            },
             bottomBar = {
                 AnimatedVisibility(
                     visible = isBottomBarVisible,
@@ -126,6 +110,7 @@ fun MainScaffold(
             RootNavGraph(
                 rootNavController = rootNavController,
                 innerPadding = innerPadding,
+                settingViewModel = settingViewModel
             )
         }
 

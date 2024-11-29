@@ -13,8 +13,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.mobile.fitness_x.components.AppTopBar
-import com.mobile.fitness_x.screens.setting.component.SettingItem
-import com.mobile.fitness_x.screens.setting.component.ThemeSelectionDialog
+import com.mobile.fitness_x.screens.setting.components.SettingItem
+import com.mobile.fitness_x.screens.setting.components.ThemeSelectionDialog
 import com.mobile.fitness_x.utils.Theme
 import fitness_x.composeapp.generated.resources.Res
 import fitness_x.composeapp.generated.resources.ic_light_mode

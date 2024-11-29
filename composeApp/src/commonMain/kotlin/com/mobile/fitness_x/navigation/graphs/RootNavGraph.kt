@@ -6,7 +6,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.mobile.fitness_x.navigation.Graph
+import com.mobile.fitness_x.navigation.NotificationRouteScreen
 import com.mobile.fitness_x.navigation.SettingRouteScreen
+import com.mobile.fitness_x.screens.notification.NotificationScreen
 import com.mobile.fitness_x.screens.setting.SettingScreen
 import com.mobile.fitness_x.screens.setting.SettingViewModel
 
@@ -27,6 +29,14 @@ fun RootNavGraph(
             SettingScreen(
                 navController = rootNavController,
                 settingViewModel = settingViewModel
+            )
+        }
+        composable(
+            route = NotificationRouteScreen.Notifications.route
+        ) {
+            NotificationScreen(
+                rootNavController = rootNavController,
+                innerPadding = innerPadding
             )
         }
     }

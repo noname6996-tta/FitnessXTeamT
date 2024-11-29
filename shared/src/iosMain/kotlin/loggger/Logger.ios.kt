@@ -1,4 +1,4 @@
-package com.mobile.fitness_x.logger
+package loggger
 
 import platform.Foundation.NSLog
 

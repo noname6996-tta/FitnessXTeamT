@@ -1,4 +1,4 @@
-package com.mobile.fitness_x.logger
+package loggger
 
 interface Logger {
     fun d(tag: String, message: String)
@@ -8,5 +8,4 @@ interface Logger {
     fun v(tag: String, message: String)
 }
 
-// Hàm tiện ích để sử dụng dễ dàng
 expect fun getLogger(): Logger

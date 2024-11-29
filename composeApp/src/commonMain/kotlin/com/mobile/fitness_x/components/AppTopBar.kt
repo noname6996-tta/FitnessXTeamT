@@ -104,7 +104,6 @@ fun AppTopBar(
                 )
             }
         } else {
-            // Nếu không hiển thị icon cuối, thêm khoảng trống để cân bằng layout
             Spacer(modifier = Modifier.size(40.dp))
         }
     }

@@ -1,4 +1,4 @@
-package com.mobile.fitness_x.logger
+package loggger
 
 object LoggerProvider {
     val logger: Logger by lazy { getLogger() }

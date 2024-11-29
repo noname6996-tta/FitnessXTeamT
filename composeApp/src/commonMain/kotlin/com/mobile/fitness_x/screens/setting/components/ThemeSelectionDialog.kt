@@ -1,4 +1,4 @@
-package com.mobile.fitness_x.screens.setting.component
+package com.mobile.fitness_x.screens.setting.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement

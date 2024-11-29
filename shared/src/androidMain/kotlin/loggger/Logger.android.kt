@@ -1,7 +1,6 @@
-package com.mobile.fitness_x.logger
+package loggger
 
 import android.util.Log
-
 
 class AndroidLogger : Logger {
     override fun d(tag: String, message: String) {

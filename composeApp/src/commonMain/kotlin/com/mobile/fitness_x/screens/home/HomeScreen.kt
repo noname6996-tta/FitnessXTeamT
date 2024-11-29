@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.navigation.NavController
 import com.mobile.fitness_x.components.AppTopBar
-import com.mobile.fitness_x.navigation.SettingRouteScreen
+import com.mobile.fitness_x.navigation.NotificationRouteScreen
 import fitness_x.composeapp.generated.resources.Res
 import fitness_x.composeapp.generated.resources.bottom_home
 import org.jetbrains.compose.resources.stringResource
@@ -42,8 +42,8 @@ fun HomeScreen(
             isNotification = true,
             isShowIconEnd = true,
             title = stringResource(Res.string.bottom_home),
-            onClickSettings = {
-                rootNavController.navigate(SettingRouteScreen.Settings.route)
+            onClickNotification = {
+                rootNavController.navigate(NotificationRouteScreen.Notifications.route)
             }
         )
         Box(

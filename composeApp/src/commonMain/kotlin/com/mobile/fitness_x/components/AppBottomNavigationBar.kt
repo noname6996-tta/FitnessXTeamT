@@ -15,6 +15,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.mobile.fitness_x.navigation.NavigationItem
+import loggger.LoggerProvider
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
@@ -40,6 +41,10 @@ fun AppBottomNavigationBar(
             NavigationBarItem(
                 selected = currentRoute == navigationItem.route,
                 onClick = {
+                    LoggerProvider.logger.d(
+                        "AppBottomNavigationBar",
+                        "onClick: ${navigationItem.route}"
+                    )
                     onItemClick(navigationItem)
                 },
                 icon = {
